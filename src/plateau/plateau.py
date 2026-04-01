@@ -13,8 +13,8 @@ class ResultatDeplacement(Enum):
 
 
 class Plateau:
-    NB_LIGNES = 26
-    NB_COLONNES = 26
+    NB_LIGNES = 22
+    NB_COLONNES = 22
 
     def __init__(self, x_loc=55, y_loc=160, cell_width=16):
         self.x_loc = x_loc

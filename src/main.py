@@ -39,8 +39,8 @@ VOLUME_LEVEL = 0.4
 
 WINDOW_W = 1200
 WINDOW_H = 720
-NB_LIGNES = 26
-NB_COLONNES = 26
+NB_LIGNES = 22
+NB_COLONNES = 22
 CELL_SIZE = 16
 GRID_W = NB_COLONNES * CELL_SIZE
 GRID_H = NB_LIGNES * CELL_SIZE
@@ -235,7 +235,7 @@ def create_fleet_sprites(fleet_spec: list[tuple[str, int, str]] | None = None) -
     y_step = 30
 
     for idx, (ship_name, length, rel_path) in enumerate(fleet_spec):
-        ship_x = center_lane
+        ship_x = center_lane - 40
         ship_y = y_start + idx * y_step
         group.add(Bateau(ship_name, length, asset_path(rel_path), ship_x, ship_y, CELL_SIZE))
     return group
@@ -360,7 +360,7 @@ def setup_buttons():
 
     return {
         "menu": TextButton("menu", "MENU", 22, 22, 100, 42, MENU_BLUE),
-        "rotate": TextButton("rotate", "Rotation", center_x - 280, WINDOW_H - 75, 180, 52),
+        "rotate": TextButton("rotate", "Rotation", center_x - 280, WINDOW_H - 145, 180, 52),
         "action_tir": TextButton("action_tir", "Tir", row_start_x, row_y, tir_w, 46),
         "action_move": TextButton("action_move", "Deplacement", row_start_x + tir_w + gap, row_y, move_w, 46),
         "axis": TextButton("axis", "H / V", row_start_x + tir_w + gap + move_w + gap, row_y, axis_w, 46),
