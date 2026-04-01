@@ -231,13 +231,12 @@ def create_fleet_sprites(fleet_spec: list[tuple[str, int, str]] | None = None) -
 
     group = pygame.sprite.Group()
     center_lane = (PLAYER_GRID_X + GRID_W + ENEMY_GRID_X) // 2
-    x_positions = [center_lane - 70, center_lane + 70]
     y_start = GRID_Y + 20
-    y_step = 34
+    y_step = 30
 
     for idx, (ship_name, length, rel_path) in enumerate(fleet_spec):
-        ship_x = x_positions[idx % len(x_positions)]
-        ship_y = y_start + (idx // len(x_positions)) * y_step
+        ship_x = center_lane
+        ship_y = y_start + idx * y_step
         group.add(Bateau(ship_name, length, asset_path(rel_path), ship_x, ship_y, CELL_SIZE))
     return group
 
@@ -361,7 +360,7 @@ def setup_buttons():
 
     return {
         "menu": TextButton("menu", "MENU", 22, 22, 100, 42, MENU_BLUE),
-        "rotate": TextButton("rotate", "Rotation", center_x - 280, WINDOW_H - 190, 180, 52),
+        "rotate": TextButton("rotate", "Rotation", center_x - 280, WINDOW_H - 75, 180, 52),
         "action_tir": TextButton("action_tir", "Tir", row_start_x, row_y, tir_w, 46),
         "action_move": TextButton("action_move", "Deplacement", row_start_x + tir_w + gap, row_y, move_w, 46),
         "axis": TextButton("axis", "H / V", row_start_x + tir_w + gap + move_w + gap, row_y, axis_w, 46),
